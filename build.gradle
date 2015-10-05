@@ -1,0 +1,31 @@
+
+plugins {
+  id 'idea'
+  id 'eclipse'
+  id 'groovy'
+}
+
+group = 'com.carrotsearch.gradle'
+description = 'Gradle plugin to use randomized testing for java tests'
+version = '2.1.17'
+
+// minimum java 7
+targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = targetCompatibility
+
+repositories {
+  mavenCentral()
+  maven {
+    name 'sonatype-snapshots'
+    url "https://oss.sonatype.org/content/repositories/snapshots/"
+  }
+}
+
+dependencies {
+  compile gradleApi()
+  compile localGroovy()
+  compile "com.carrotsearch.randomizedtesting:junit4-ant:${version}"
+  compile(group: 'junit', name: 'junit', version: '4.11') {
+    transitive = false
+  }
+}
