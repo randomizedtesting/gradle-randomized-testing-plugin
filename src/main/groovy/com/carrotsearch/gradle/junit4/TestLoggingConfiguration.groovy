@@ -1,4 +1,4 @@
-package com.carrotsearch.gradle
+package com.carrotsearch.gradle.junit4
 
 import org.gradle.util.ConfigureUtil
 

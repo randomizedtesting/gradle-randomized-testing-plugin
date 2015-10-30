@@ -3,11 +3,13 @@ plugins {
   id 'idea'
   id 'eclipse'
   id 'groovy'
+  id 'com.bmuschko.nexus' version '2.3.1'
 }
 
 group = 'com.carrotsearch.gradle'
+archivesBaseName = 'randomized-testing-plugin'
 description = 'Gradle plugin to use randomized testing for java tests'
-version = '2.1.17'
+version = '1.0-SNAPSHOT'
 
 // minimum java 7
 targetCompatibility = JavaVersion.VERSION_1_7
@@ -24,8 +26,23 @@ repositories {
 dependencies {
   compile gradleApi()
   compile localGroovy()
-  compile "com.carrotsearch.randomizedtesting:junit4-ant:${version}"
+  compile 'com.carrotsearch.randomizedtesting:junit4-ant:2.2.0'
   compile(group: 'junit', name: 'junit', version: '4.11') {
     transitive = false
   }
+}
+
+modifyPom {
+  project {
+    url 'https://github.com/randomizedtesting/gradle-randomized-testing-plugin'
+    inceptionYear '2015'
+
+    licenses {
+      license {
+        name 'The Apache Software License, Version 2.0'
+        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+        distribution 'repo'
+      }
+    }
+  }  
 }
