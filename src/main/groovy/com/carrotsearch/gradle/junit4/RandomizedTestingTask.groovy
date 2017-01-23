@@ -47,6 +47,10 @@ class RandomizedTestingTask extends DefaultTask {
 
     @Optional
     @Input
+    String onNonEmptyWorkDirectory = 'fail'
+
+    @Optional
+    @Input
     boolean haltOnFailure = true
 
     @Optional
@@ -194,7 +198,8 @@ class RandomizedTestingTask extends DefaultTask {
             haltOnFailure: true, // we want to capture when a build failed, but will decide whether to rethrow later
             shuffleOnSlave: shuffleOnSlave,
             leaveTemporary: leaveTemporary,
-            ifNoTests: ifNoTests
+            ifNoTests: ifNoTests,
+            onNonEmptyWorkDirectory: onNonEmptyWorkDirectory
         ]
 
         DefaultLogger listener = null

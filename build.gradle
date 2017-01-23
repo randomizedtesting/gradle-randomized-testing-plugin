@@ -18,6 +18,10 @@ sourceCompatibility = targetCompatibility
 repositories {
   mavenCentral()
   maven {
+    name 'sonatype-releases'
+    url "https://oss.sonatype.org/content/repositories/releases/"
+  }
+  maven {
     name 'sonatype-snapshots'
     url "https://oss.sonatype.org/content/repositories/snapshots/"
   }
@@ -26,7 +30,7 @@ repositories {
 dependencies {
   compile gradleApi()
   compile localGroovy()
-  compile 'com.carrotsearch.randomizedtesting:junit4-ant:2.2.0'
+  compile 'com.carrotsearch.randomizedtesting:junit4-ant:2.5.0'
   compile(group: 'junit', name: 'junit', version: '4.11') {
     transitive = false
   }
